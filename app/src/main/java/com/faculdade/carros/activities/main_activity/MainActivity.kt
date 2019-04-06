@@ -9,7 +9,11 @@ import com.faculdade.carros.R
 class MainActivity : AppCompatActivity() {
 
     companion object {
-        fun start(context : Context) = context.startActivity(Intent(context, MainActivity::class.java))
+        fun start(context : Context) {
+            val it = Intent(context, MainActivity::class.java)
+            it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            context.startActivity(it)
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

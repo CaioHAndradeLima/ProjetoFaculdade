@@ -1,9 +1,10 @@
-package com.faculdade.carros.activities.login_activity
+package com.faculdade.carros.activities.introdution_activity
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.faculdade.carros.R
+import com.faculdade.carros.activities.login_activity.LoginActivity
 import com.faculdade.carros.activities.register_activity.RegisterActivity
 
 class IntrodutionActivity : AppCompatActivity() {
@@ -12,9 +13,10 @@ class IntrodutionActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_introdution)
+
         buttonRegister.setOnClickListener { RegisterActivity.start(this) }
-       // buttonLogin.setOnClickListener { LoginActivity.start(this) }
+        buttonLogin.setOnClickListener { LoginActivity.start(this) }
 
     }
 }

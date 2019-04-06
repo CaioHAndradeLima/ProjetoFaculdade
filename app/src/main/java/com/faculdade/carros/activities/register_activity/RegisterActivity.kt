@@ -9,12 +9,14 @@ import android.view.View
 import android.widget.EditText
 import com.faculdade.carros.R
 import com.faculdade.carros.activities.main_activity.MainActivity
+import com.faculdade.carros.extensions.AppCompatActivityBack
+import com.faculdade.carros.extensions.configureActionBar
 import com.faculdade.carros.extensions.openSnackbar
 import com.faculdade.carros.models.User
 import com.faculdade.carros.sharedpreferences.SharedPreferencesHelper
 import io.reactivex.Observable
 
-class RegisterActivity : AppCompatActivity() {
+class RegisterActivity : AppCompatActivityBack() {
     private val buttonRegister by lazy { findViewById<View>(R.id.button_register) }
     private val edtName by lazy { findViewById<EditText>(R.id.edittext_name) }
     private val edtEmail by lazy { findViewById<EditText>(R.id.edittext_email) }
@@ -30,11 +32,7 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        supportActionBar?.let {
-            it.setDisplayHomeAsUpEnabled(true)
-            it.setHomeButtonEnabled(true)
-            it.setDisplayShowHomeEnabled(true)
-        }
+        configureActionBar()
 
         buttonRegister.setOnClickListener {
             Observable
@@ -51,13 +49,6 @@ class RegisterActivity : AppCompatActivity() {
                 .doOnNext { MainActivity.start(this) }
                 .subscribe()
         }
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-         if(item!!.itemId == android.R.id.home) {
-            onBackPressed()
-        }
-        return super.onOptionsItemSelected(item)
     }
 
     private fun validate(it: User): Boolean {
