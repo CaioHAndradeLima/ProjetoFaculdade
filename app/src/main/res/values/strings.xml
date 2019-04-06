@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Carros</string>
+    <string name="login">Entrar</string>
+    <string name="register">Registrar</string>
+    <string name="email">E-mail</string>
+    <string name="name">Nome</string>
+    <string name="document">CPF</string>
+    <string name="password">Senha</string>
+    <string name="create_account">Criar Conta</string>
+    <string name="not_valid">Campos não estão válidos</string>
 </resources>
