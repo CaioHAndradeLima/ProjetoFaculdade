@@ -9,4 +9,6 @@
     <string name="create_account">Criar Conta</string>
     <string name="not_valid">Campos não estão válidos</string>
     <string name="user_not_found">Usuário não encontrado</string>
+    <string name="get_it_now">Reservar agora</string>
+    <string name="user_already_exists">Usuário já existente</string>
 </resources>

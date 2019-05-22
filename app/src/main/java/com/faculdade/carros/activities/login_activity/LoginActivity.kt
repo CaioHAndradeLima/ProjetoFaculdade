@@ -16,6 +16,7 @@ import com.orm.SugarRecord
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivityBack() {
+
     companion object {
         @JvmStatic
         fun start(context: Context) = context.startActivity(Intent(context, LoginActivity::class.java))
@@ -30,6 +31,8 @@ class LoginActivity : AppCompatActivityBack() {
         setContentView(R.layout.activity_login)
 
         configureActionBar()
+
+       // User("caio","caio@gmail.com","12345","44574551801").save()
 
         buttonLogin.setOnClickListener {
             SugarRecord

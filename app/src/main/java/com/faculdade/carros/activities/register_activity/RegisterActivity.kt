@@ -14,6 +14,7 @@ import com.faculdade.carros.extensions.configureActionBar
 import com.faculdade.carros.extensions.openSnackbar
 import com.faculdade.carros.models.User
 import com.faculdade.carros.sharedpreferences.SharedPreferencesHelper
+import com.orm.SugarRecord
 import io.reactivex.Observable
 
 class RegisterActivity : AppCompatActivityBack() {
@@ -44,6 +45,16 @@ class RegisterActivity : AppCompatActivityBack() {
                         toString(edtDocument)
                     )
                 ).filter { validate(it) }
+                .filter {
+                    SugarRecord.findAll(User::class.java).forEach { user ->
+                        if(it.email == user.email ||
+                                it.document == user.document) {
+                            openSnackbar(getString(R.string.user_already_exists))
+                            return@filter false
+                        }
+                    }
+                    true
+                }
                 .doOnNext { it.save() }
                 .doOnNext { SharedPreferencesHelper.setIdUserLogged(this, it.id) }
                 .doOnNext { MainActivity.start(this) }
