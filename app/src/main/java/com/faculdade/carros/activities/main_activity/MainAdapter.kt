@@ -36,7 +36,7 @@ class MainHolder(view: View) : RecyclerView.ViewHolder(view) {
     private val textViewTitle = view.findViewById<TextView>(R.id.title)
     private val textViewModel = view.findViewById<TextView>(R.id.model)
     private val textViewYear = view.findViewById<TextView>(R.id.year)
-    private val textViewColor = view.findViewById<TextView>(R.id.color)
+    private val textViewPrice = view.findViewById<TextView>(R.id.price)
     private val image = view.findViewById<ImageView>(R.id.imageview)
 
     private lateinit var car: CarEntity
@@ -54,7 +54,7 @@ class MainHolder(view: View) : RecyclerView.ViewHolder(view) {
         textViewTitle.text = car.name
         textViewModel.text = car.model
         textViewYear.text = car.year
-        textViewColor.text = car.color
+        textViewPrice.text = car.price
 
 
         image.setImageResource(car.drawable)
@@ -66,6 +66,6 @@ data class CarEntity(
     val name: String,
     val year: String,
     val model: String,
-    val color: String,
+    val price: String,
     @DrawableRes val drawable: Int
 )
